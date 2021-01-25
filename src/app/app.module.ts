@@ -13,7 +13,8 @@ import { HeaderComponent } from './header/header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import{PostListComponent}from './posts/postlist/postlist/post-list.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import{PostsService}from '../app/posts/posts.service'
+import{PostsService}from '../app/posts/posts.service';
+import{HttpClientModule} from '@angular/common/http';
 
 
 
@@ -33,7 +34,7 @@ import{PostsService}from '../app/posts/posts.service'
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCardModule,MatButtonModule,MatToolbarModule,MatExpansionModule
+    MatCardModule,MatButtonModule,MatToolbarModule,MatExpansionModule,HttpClientModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
