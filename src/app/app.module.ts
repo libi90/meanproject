@@ -15,7 +15,7 @@ import{PostListComponent}from './posts/postlist/postlist/post-list.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import{PostsService}from '../app/posts/posts.service';
 import{HttpClientModule} from '@angular/common/http';
-
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner"
 
 
 @NgModule({
@@ -34,7 +34,12 @@ import{HttpClientModule} from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCardModule,MatButtonModule,MatToolbarModule,MatExpansionModule,HttpClientModule
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
