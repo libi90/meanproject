@@ -10,7 +10,7 @@
 <input type="file" #filePicker (change)="onImagePicked($event)">
 </div>
 <div class="image-preview" *ngIf="image-preview !=='' && image-preview">
-    <img src=""[alt]="form.value.title">
+    <img [src]="image-preview" [alt]="form.value.title">
 </div>
 <mat-form-field>
 <textarea matInput rows="6" name="content" formControlName="content" placeholder="Post content" ></textarea>

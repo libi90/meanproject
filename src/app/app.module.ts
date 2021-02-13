@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{ReactiveFormsModule}from '@angular/forms'
+import{ReactiveFormsModule,FormsModule}from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +14,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import{PostListComponent}from './posts/postlist/postlist/post-list.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import{PostsService}from '../app/posts/posts.service';
-import{HttpClientModule} from '@angular/common/http';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner"
+import{HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthInterceptor } from "./auth/auth-interceptor";
+
 
 
 @NgModule({
@@ -23,9 +28,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner"
     AppComponent,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent
-  
-  
+    PostListComponent,
+    LoginComponent,
+    SignupComponent
   
   ],
   imports: [
@@ -39,9 +44,15 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner"
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    FormsModule
+  
+  
   ],
-  providers: [PostsService],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
